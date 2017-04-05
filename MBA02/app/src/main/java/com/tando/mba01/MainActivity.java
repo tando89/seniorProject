@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     public void advising (View viewAdvising) {
         startActivity(new Intent(this, Advising.class));
     }
+    //button MyCoyote Function
+    public void StartMyCoyote (View viewMyCoyote) {
+        startActivity(new Intent(this, MyCoyote.class));
+    }
     //back to homepage when click the logo
     public void backHome (View home) {
         startActivity(new Intent(this, MainActivity.class));

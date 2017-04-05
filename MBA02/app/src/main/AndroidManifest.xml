@@ -63,11 +63,17 @@
             android:name=".GPAcalculator"
             android:label="GPA Calculator"
             android:parentActivityName=".Advising"
-            android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".RequestAdvising"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".RequestAdvising"
             android:label="Ask for Advising"
             android:parentActivityName=".Advising"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".MyCoyote"
+            android:label="My Coyote"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
     </application>
 
 </manifest>
