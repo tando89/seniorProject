@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fall 2016 Events:"
+                    android:text="MBA focus area:"
                     android:textStyle="bold"
                     android:textColor="#000"
                     android:textSize="20dp"
@@ -79,15 +79,43 @@
                     android:text="@string/passport4"
                     android:onClick="CBPA"
                  />
-                <!-- MBA will be link to GPA calculator -->
+                <!-- MBA Virtual Passport -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="MBA Virtual Passport:"
+                    android:textStyle="bold"
                     android:textColor="#000"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/passport5"
-                    android:onClick="MBA"
-                    />
+                    android:textSize="20dp"
+                    android:layout_marginBottom="5dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's begin"
+                    android:textColor="#FFF"
+                    android:background="@drawable/button"
+                    android:layout_gravity="center"
+                    android:onClick="bntVirtualPP"/>
+                <!-- Check Events Activity -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Events I Have Attended:"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check"
+                    android:textColor="#FFF"
+                    android:background="@drawable/button"
+                    android:layout_gravity="center"
+                    android:onClick="bnt_Events"/>
+
+
 
             </LinearLayout>
 

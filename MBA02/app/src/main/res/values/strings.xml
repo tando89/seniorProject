@@ -106,4 +106,9 @@
     *= required fields</string>
     <string name="gpaCalc">Enter your units and grade points for each of your class:\n
     *= required fields</string>
+    <string name="instruction"><b>Instructions:</b> Only click in the event that you are attending.
+    The staff members will enter a passcode for you to submit your information.</string>
+    <string name="warningNote"><b>Note*:</b> please double check your information before
+    clicking submit button. Make sure you enter correct studentID.</string>
+    <string name="checkEvent"><b>Note*:</b> please log out before checking with other studentID.</string>
 </resources>

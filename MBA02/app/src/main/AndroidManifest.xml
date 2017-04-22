@@ -69,10 +69,27 @@
             android:label="Ask for Advising"
             android:parentActivityName=".Advising"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".MyCoyote"
+        <activity
+            android:name=".MyCoyote"
             android:label="My Coyote"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".VirtualPassport"
+            android:label="Passport Events"
+            android:parentActivityName=".Passport" />
+        <activity
+            android:name=".PassportValidation"
+            android:label="Passport Validation"
+            android:parentActivityName=".VirtualPassport" />
+        <activity
+            android:name=".PassportInfo"
+            android:label="Passport Info"
+            android:parentActivityName=".Passport"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".CheckEvents"
+            android:label="Check Event"
+            android:parentActivityName=".Passport">
         </activity>
     </application>
 
