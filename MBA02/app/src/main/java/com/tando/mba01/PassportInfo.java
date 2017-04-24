@@ -61,49 +61,58 @@ public class PassportInfo extends AppCompatActivity {
                 name = Name.getText().toString();
                 studentID = StudentID.getText().toString();
                 events = Events.getText().toString();
-                //request with POST method and string
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, server_url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                //get response form server to check if it is successfully submitted
-                                builder.setTitle("Server Response");
-                                builder.setMessage("Response:" + response);
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //clear the text fields after submit
-                                        Date.setText("");
-                                        Name.setText("");
-                                        StudentID.setText("");
-                                        Events.setText("");
-                                    }
-                                });
-                                AlertDialog alertDialog = builder.create();
-                                alertDialog.show();
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(PassportInfo.this, "Error!!!", Toast.LENGTH_SHORT).show();
-                                error.printStackTrace();
-                            }
-                        }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        //send data to mySQL server
-                        //the keys must be same as field names in mySQL server
-                        params.put("Date", date);
-                        params.put("Name", name);
-                        params.put("StudentID", studentID);
-                        params.put("Events", events);
+                //No empty fields
+                if (date.equals("") && name.equals("") && studentID.equals("") && events.equals("")) {
+                    builder.setTitle("Error!!!");
+                    //Creating a AlertDialog to display errors
+                    AlertDialog alertDialog01 = builder.create();
+                    alertDialog01.setMessage("Please Enter All Required Fields*");
+                    alertDialog01.show();
+                } else {
+                    //request with POST method and string
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, server_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    //get response form server to check if it is successfully submitted
+                                    builder.setTitle("Server Response");
+                                    builder.setMessage(response);
+                                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            //clear the text fields after submit
+                                            Date.setText("");
+                                            Name.setText("");
+                                            StudentID.setText("");
+                                            Events.setText("");
+                                        }
+                                    });
+                                    AlertDialog alertDialog = builder.create();
+                                    alertDialog.show();
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(PassportInfo.this, "Error!!!", Toast.LENGTH_SHORT).show();
+                                    error.printStackTrace();
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            //send data to mySQL server
+                            //the keys must be same as field names in mySQL server
+                            params.put("Date", date);
+                            params.put("Name", name);
+                            params.put("StudentID", studentID);
+                            params.put("Events", events);
 
-                        return params;
-                    }
-                };
-                MySingleton.getInstance(PassportInfo.this).addTorequestqueue(stringRequest);
+                            return params;
+                        }
+                    };
+                    MySingleton.getInstance(PassportInfo.this).addTorequestqueue(stringRequest);
+                }
             }
         }); //end of submit function
 

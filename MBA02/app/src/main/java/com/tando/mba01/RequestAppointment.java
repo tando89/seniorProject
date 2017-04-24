@@ -1,11 +1,13 @@
 package com.tando.mba01;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,8 +28,8 @@ public class RequestAppointment extends AppCompatActivity {
     //Declare button and textview
     Button buttonRequest;
     TextView textDates;
-    //string for server url
-    String server_url = "https://cse455.tk/~mbapassport/dates.php";
+    //string for server url https://cse455.tk/~mbapassport/dates.php
+    String server_url = "https://feedback-server-tand089.c9users.io/dates.php";
     //back to homepage logo
     public void backHome (View home) {
         startActivity(new Intent(this, MainActivity.class));
@@ -35,8 +37,8 @@ public class RequestAppointment extends AppCompatActivity {
     //declare textedits
     Button buttonSubmit;
     EditText FirstName, LastName, StudentID, CoyoteEmail, Date;
-    //php server
-    String server_url02 = "https://cse455.tk/~mbapassport/appointment.php";
+    //php server https://cse455.tk/~mbapassport/appointment.php
+    String server_url02 = "https://feedback-server-tand089.c9users.io/appointment.php";
 
     AlertDialog.Builder builder;
     @Override
@@ -93,6 +95,13 @@ public class RequestAppointment extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Hide virtual keyboard after click the button
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+                //Declare strings of data info
                 final String firstName, lastName, studentID, coyoteEmail, date;
                 //covert inputs to string
                 firstName = FirstName.getText().toString();
@@ -100,50 +109,60 @@ public class RequestAppointment extends AppCompatActivity {
                 studentID = StudentID.getText().toString();
                 coyoteEmail = CoyoteEmail.getText().toString();
                 date = Date.getText().toString();
-                //request with POST method and string
-                StringRequest stringRequest02 = new StringRequest(Request.Method.POST, server_url02,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                //get response form server to check if it is successfully submitted
-                                builder.setTitle("Server Response");
-                                builder.setMessage("Response:" + response);
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //clear the text fields after submit
-                                        FirstName.setText("");
-                                        LastName.setText("");
-                                        StudentID.setText("");
-                                        CoyoteEmail.setText("");
-                                        Date.setText("");
-                                    }
-                                });
-                                AlertDialog alertDialog = builder.create();
-                                alertDialog.show();
-                            }
-                        },
-                        new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(RequestAppointment.this,"Error!!!", Toast.LENGTH_SHORT).show();
-                        error.printStackTrace();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        //send data to mySQL server
-                        //the keys must be same as field names in mySQL server
-                        params.put("FIRSTNAME", firstName);
-                        params.put("LASTNAME",lastName);
-                        params.put("STUDENTID",studentID);
-                        params.put("COYOTEEMAIL",coyoteEmail);
-                        params.put("DATE",date);
-                        return params;
-                    }
-                };
-                        MySingleton.getInstance(RequestAppointment.this).addTorequestqueue(stringRequest02);
+                //No empty fields
+                if (firstName.equals("") && lastName.equals("") && studentID.equals("")
+                        && coyoteEmail.equals("") && date.equals("")) {
+                    builder.setTitle("Error!!!");
+                    //Creating a AlertDialog to display errors
+                    AlertDialog alertDialog01 = builder.create();
+                    alertDialog01.setMessage("Please Enter All Required Fields*");
+                    alertDialog01.show();
+                } else {
+                    //request with POST method and string
+                    StringRequest stringRequest02 = new StringRequest(Request.Method.POST, server_url02,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    //get response form server to check if it is successfully submitted
+                                    builder.setTitle("Server Response");
+                                    builder.setMessage(response);
+                                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            //clear the text fields after submit
+                                            FirstName.setText("");
+                                            LastName.setText("");
+                                            StudentID.setText("");
+                                            CoyoteEmail.setText("");
+                                            Date.setText("");
+                                        }
+                                    });
+                                    AlertDialog alertDialog = builder.create();
+                                    alertDialog.show();
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(RequestAppointment.this, "Error!!!", Toast.LENGTH_SHORT).show();
+                                    error.printStackTrace();
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            //send data to mySQL server
+                            //the keys must be same as field names in mySQL server
+                            params.put("FIRSTNAME", firstName);
+                            params.put("LASTNAME", lastName);
+                            params.put("STUDENTID", studentID);
+                            params.put("COYOTEEMAIL", coyoteEmail);
+                            params.put("DATE", date);
+                            return params;
+                        }
+                    };
+                    MySingleton.getInstance(RequestAppointment.this).addTorequestqueue(stringRequest02);
+                }
             }
         }); //end of button submit fucntion
     }
