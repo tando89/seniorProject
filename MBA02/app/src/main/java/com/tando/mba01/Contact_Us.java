@@ -65,8 +65,8 @@ public class Contact_Us extends AppCompatActivity {
                 coyoteEmail = CoyoteEmail.getText().toString();
                 messages = Messages.getText().toString();
                 //No empty fields
-                if (firstName.equals("") && lastName.equals("") && studentID.equals("")
-                        && coyoteEmail.equals("") && messages.equals("")) {
+                if (firstName.equals("") || lastName.equals("") || studentID.equals("")
+                        || coyoteEmail.equals("") || messages.equals("")) {
                     builder.setTitle("Error!!!");
                     //Creating a AlertDialog to display errors
                     AlertDialog alertDialog01 = builder.create();

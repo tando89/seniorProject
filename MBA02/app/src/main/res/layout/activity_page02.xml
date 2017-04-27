@@ -13,91 +13,103 @@
     android:orientation="vertical"
     android:background="#FFF">
 
-    <ImageView
-        android:layout_height="100dp"
-        app:srcCompat= "@drawable/csusb_logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:onClick="backHome" />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
-
-        <Button
-            android:text="MBA Staff"
-            android:textColor="#FFFFFF"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:id="@+id/button"
-            android:layout_height="wrap_content"
-            android:background="@drawable/mbastaff"
-            android:layout_marginBottom="10dp"
-            android:onClick="starStaff"/>
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_height="100dp"
+                app:srcCompat= "@drawable/csusb_logo"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:onClick="backHome" />
+            </LinearLayout>
 
-        <Button
-            android:text="MBA mission"
-            android:textColor="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/mbamission"
-            android:onClick="starMission"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView3"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
 
-        <Button
-            android:text="MBA Learning Goals"
-            android:textColor="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button3"
-            android:background="@drawable/mbalearninggoals"
-            android:onClick="starMBAgoals"/>
-    </LinearLayout>
+                <Button
+                    android:text="MBA Staff"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="match_parent"
+                    android:id="@+id/button"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mbastaff"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="starStaff"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+                <Button
+                    android:text="MBA mission"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button2"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/mbamission"
+                    android:onClick="starMission"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/facebookicon"
-            android:paddingRight="5dp"
-            android:id="@+id/Facebook"
-            android:onClick="fbFunc"/>
+                <Button
+                    android:text="MBA Learning Goals"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button3"
+                    android:background="@drawable/mbalearninggoals"
+                    android:onClick="starMBAgoals"/>
+            </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/instagramicon"
-            android:paddingRight="5dp"
-            android:id="@+id/Instagram"
-            android:onClick="igFunc"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/linkedin"
-            android:paddingRight="5dp"
-            android:id="@+id/Linkedin"
-            android:onClick="lnFunc"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/facebookicon"
+                    android:paddingRight="5dp"
+                    android:id="@+id/Facebook"
+                    android:onClick="fbFunc"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/twittericon"
-            android:paddingRight="5dp"
-            android:id="@+id/Twitter"
-            android:onClick="twFunc"/>
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/instagramicon"
+                    android:paddingRight="5dp"
+                    android:id="@+id/Instagram"
+                    android:onClick="igFunc"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/linkedin"
+                    android:paddingRight="5dp"
+                    android:id="@+id/Linkedin"
+                    android:onClick="lnFunc"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/twittericon"
+                    android:paddingRight="5dp"
+                    android:id="@+id/Twitter"
+                    android:onClick="twFunc"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

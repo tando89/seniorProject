@@ -62,7 +62,7 @@ public class PassportInfo extends AppCompatActivity {
                 studentID = StudentID.getText().toString();
                 events = Events.getText().toString();
                 //No empty fields
-                if (date.equals("") && name.equals("") && studentID.equals("") && events.equals("")) {
+                if (date.equals("") || name.equals("") || studentID.equals("") || events.equals("")) {
                     builder.setTitle("Error!!!");
                     //Creating a AlertDialog to display errors
                     AlertDialog alertDialog01 = builder.create();

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class GPAcalculator extends AppCompatActivity {
     //create an array to store the unit values, format in double
     public static ArrayList<Double> units = new ArrayList<Double>();
-    //create an array to store the unit values, format in double
+    //create an array to store the grade values, format in double
     public static ArrayList<Double> grades = new ArrayList<Double>();
     //Create an array to store the total grade points = units * grade points values
     public static ArrayList<Double> gradePoints = new ArrayList<Double>();
