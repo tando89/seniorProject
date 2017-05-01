@@ -47,43 +47,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
-
-        <EditText
-            android:id="@+id/unitAdd"
-            android:layout_column="0"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="10dp"
-            android:layout_row="0"
-            android:background="@drawable/edittext_style03"
-            android:hint="Unit*"
-            android:inputType="number|numberDecimal" />
-
-        <EditText
-            android:id="@+id/gradeAdd"
-            android:layout_column="1"
-            android:layout_marginBottom="5dp"
-            android:layout_row="0"
-            android:background="@drawable/edittext_style03"
-            android:hint="Grade Point*"
-            android:inputType="number|numberDecimal" />
-        <Button
-            android:id="@+id/buttonCalc"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center">
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_column="2"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:text="Units*:"
+            android:layout_column="0"
             android:layout_row="0"
-            android:text="INSERT"
             />
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner1"
+            android:layout_column="1"
+            android:layout_row="0">
+        </android.support.v7.widget.AppCompatSpinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grade Points*:"
+            android:layout_column="2"
+            android:layout_row="0"
+            />
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_column="3"
+            android:layout_row="0">
+        </android.support.v7.widget.AppCompatSpinner>
     </GridLayout>
-    <Button
-        android:id="@+id/clear"
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="clear" />
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/bntInsert"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="INSERT"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginRight="15dp"/>
+        <Button
+            android:id="@+id/bntClear"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="clear"
+            android:layout_row="0"
+            android:layout_column="1"/>
+     </GridLayout>
     <Button
         android:id="@+id/calcGPA"
         android:layout_width="wrap_content"
@@ -102,7 +118,7 @@
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/resultTotalGrades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total grade points:"

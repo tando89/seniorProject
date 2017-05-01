@@ -1,14 +1,13 @@
 package com.tando.mba01;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,114 +15,133 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GPAcalculator extends AppCompatActivity {
-    //create an array to store the unit values, format in double
-    public static ArrayList<Double> units = new ArrayList<Double>();
-    //create an array to store the grade values, format in double
-    public static ArrayList<Double> grades = new ArrayList<Double>();
-    //Create an array to store the total grade points = units * grade points values
+    //Declare an array to store units type is double
+    public static ArrayList<Double> unitsAdd = new ArrayList<Double>();
+    //Declare an array to store grade points
+    public static ArrayList<Double> gradeAdd = new ArrayList<Double>();
+    //Declare an array to store the result of units * gradepoints
     public static ArrayList<Double> gradePoints = new ArrayList<Double>();
-    //declare GPA as totalGPA, sum of units array as totalUnits, total grade points array as sum
-    //gradepoints is the value of each unit value * each grade points value
-    //num1 is unit value, num 2 is grade point value
-    double totalGPA, totalUnits, sum, gradepoints, num1, num2;
+    //Declare the spinners
+    Spinner spinner1, spinner2;
+    //Declare adapter to connect array in string value
+    ArrayAdapter<CharSequence> adapter1;
+    //Adapter 2
+    ArrayAdapter<CharSequence> adapter2;
+    //Declare some double variables
+    Double numOfUnits, numOfGrades, gradepoints, totalGPA, totalGrades = 0.00, totalUnits = 0.00;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpacalculator);
-        //call out all the input and output by their IDs
-        final EditText unitAdd = (EditText) findViewById(R.id.unitAdd);
-        final EditText gradeAdd = (EditText) findViewById(R.id.gradeAdd);
-        Button buttonCalc = (Button)findViewById(R.id.buttonCalc);
-        final TextView result = (TextView) findViewById(R.id.result);
+
+        //Link spinners to their IDs
+        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        //link adaters to their strings and style the drop-down menu
+        adapter1 = ArrayAdapter.createFromResource(GPAcalculator.this, R.array.units,
+                android.R.layout.simple_spinner_item);
+        //Set Drop-down style
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2 = ArrayAdapter.createFromResource(GPAcalculator.this, R.array.grade_points,
+                android.R.layout.simple_spinner_item);
+        //Set Drop-down style
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //display the adapter contain the lists
+        spinner1.setAdapter(adapter1);
+        spinner2.setAdapter(adapter2);
+
+        //declare buttons
+        Button bntInsert = (Button) findViewById(R.id.bntInsert);
+        Button bntCountGPA = (Button) findViewById(R.id.calcGPA);
+        Button bntClear = (Button) findViewById(R.id.bntClear);
+
+        //textView for total units
         final TextView resultTotalUnits = (TextView) findViewById(R.id.resultTotalUnits);
+        //textView for total grade points
+        final TextView resultTotalGrades = (TextView) findViewById(R.id.resultTotalGrades);
+        //textView for GPA
         final TextView resultGPA = (TextView) findViewById(R.id.gpa);
-        Button buttonGPA = (Button) findViewById(R.id.calcGPA);
-        Button buttonClear = (Button) findViewById(R.id.clear);
-        //Insert values button
-        buttonCalc.setOnClickListener(new View.OnClickListener() {
+        //Insert onClick function
+        bntInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //retrieve data when user type in TextEdit (units and grade points)
-                //Check to make sure users enter all the required fields
-                if (unitAdd.getText().toString().trim().length() == 0 && gradeAdd.getText().toString().trim().length() == 0) {
-                    Toast.makeText(GPAcalculator.this, "Required fields cannot be empty!", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    num1 = Double.parseDouble(unitAdd.getText().toString());
-                    num2 = Double.parseDouble(gradeAdd.getText().toString());
-                }
-                //function for grade points =  unit * grade point
-                gradepoints = num1 * num2;
-                //add grade points values into an array
-                if (gradepoints != 0) {
-                    gradePoints.add(gradepoints);
-                }
-                //add unit values into an array
-                if (num1 != 0) {
-                    units.add(num1);
-                }
-                //add grades into an array
-                if (num2 !=0) {
-                    grades.add(num2);
-                }
-                //hide the keyboard after clicking the button
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(gradeAdd.getWindowToken(), 0);
-                //Display multiple strings at once Toast
+                //Declare a string for selected Unit_items
+                String unitSelected = spinner1.getSelectedItem().toString();
+                //Covert string to double
+                numOfUnits = Double.parseDouble(unitSelected);
+                //add double value into array
+                unitsAdd.add(numOfUnits);
+                //Declare a string for selected Grades_items
+                String gradeSelected = spinner2.getSelectedItem().toString();
+                numOfGrades = Double.parseDouble(gradeSelected);
+                gradeAdd.add(numOfGrades);
                 Toast.makeText(getApplicationContext(),
-                        "You have inserted: " + num1 + " units and " + num2 + " Grade Points",
+                        "You have inserted: " + numOfUnits + " units and " + numOfGrades + " Grade Points",
                         Toast.LENGTH_SHORT).show();
-                //clear the TextEdit to continue adding
-                unitAdd.setText("");
-                gradeAdd.setText("");
+                //Function of GradePoints
+                gradepoints = numOfUnits * numOfGrades;
+                if (gradepoints >= 0) {
+                    gradePoints.add(gradepoints);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
+                }
+                spinner1.setSelection(0);
+                spinner2.setSelection(0);
             }
         });
-        //calculate total of units array, total of grade points array and the GPA
-        buttonGPA.setOnClickListener(new View.OnClickListener() {
+
+        //Count GPA onClick function
+        bntCountGPA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //format the values
                 DecimalFormat format = new DecimalFormat("#.#");
-                for(int i=0;i<units.size();i++){
-                    //sum of the array called units
-                    totalUnits =  (units.get(i)) + totalUnits;
+                //Have to declare totalUnits = 0.00 from the beginning
+                for(int i=0;i<unitsAdd.size();i++){
+                    //sum of all elements(units) in the array called units
+                    totalUnits +=  (unitsAdd.get(i));
                 }
-
-                for(int i=0;i<gradePoints.size();i++){
-                    //sum of the array called gradePoints
-                    sum =  (gradePoints.get(i)) + sum;
+                //sum of all elements(gradePoint = numOfUnits * numOfGrades) in the array gradePoints
+                for(int j=0;j<gradePoints.size();j++){
+                    totalGrades += (gradePoints.get(j));
                 }
-                //GPA function = total grade points / total units
-                totalGPA = sum / totalUnits;
-
+                //Count GPA
+                totalGPA = totalGrades / totalUnits;
                 //Display the results in the TextView sections
-                resultTotalUnits.setText("Total units :"+Double.toString(totalUnits));
-                result.setText("Total grade points :"+format.format(sum));
+                resultTotalUnits.setText("Total units: "+Double.toString(totalUnits));
+                //Display total gradePoints
+                resultTotalGrades.setText("Total grade points: "+format.format(totalGrades));
+                //Display GPA
                 resultGPA.setText("GPA: "+format.format(totalGPA));
-                //Clear the arrays
-                totalGPA = 0;
-                totalUnits = 0;
-                sum = 0;
+                //Clear the array after button clicked
+                totalGPA = 0.00;
+                totalUnits = 0.00;
+                totalGrades = 0.00;
+                unitsAdd.clear();
+                gradeAdd.clear();
                 gradePoints.clear();
-                units.clear();
-                grades.clear();
+
             }
         });
-        //clear the arrays if wrong inputs
-        buttonClear.setOnClickListener(new View.OnClickListener() {
+
+        //Clear function
+        bntClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resultTotalUnits.setText("");
-                result.setText("");
-                resultGPA.setText("");
+                resultTotalUnits.setText("empty");
+                resultTotalGrades.setText("empty");
+                resultGPA.setText("empty");
                 gradePoints.clear();
-                units.clear();
-                grades.clear();
-                Toast.makeText(GPAcalculator.this, "All fields are empty! Please re-enter the data", Toast.LENGTH_SHORT).show();
+                unitsAdd.clear();
+                gradeAdd.clear();
+                gradePoints.clear();
+                Toast.makeText(GPAcalculator.this, "Clear!", Toast.LENGTH_LONG).show();
             }
         });
 
     }
+
+
     //back to homepage logo
     public void backHome (View home) {
         startActivity(new Intent(this, MainActivity.class));

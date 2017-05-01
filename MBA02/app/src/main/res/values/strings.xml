@@ -104,11 +104,34 @@
         *= required fields</string>
     <string name="advising01">Fill out this form to ask for advising:\n
     *= required fields</string>
-    <string name="gpaCalc">Enter your units and grade points for each of your class:\n
+    <string name="gpaCalc">Insert units and grade points for each of your class:\n
     *= required fields</string>
     <string name="instruction"><b>Instructions:</b> Only click in the event that you are attending.
     The staff members will enter a passcode for you to submit your information.</string>
     <string name="warningNote"><b>Note*:</b> please double check your information before
     clicking submit button. Make sure you enter correct studentID.</string>
     <string name="checkEvent"><b>Note*:</b> please log out before checking with other studentID.</string>
+
+    <string-array name="units">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="grade_points">
+        <item>0.00</item>
+        <item>4.00</item>
+        <item>3.70</item>
+        <item>3.33</item>
+        <item>3.00</item>
+        <item>2.70</item>
+        <item>2.30</item>
+        <item>2.00</item>
+        <item>1.70</item>
+        <item>1.30</item>
+        <item>1.00</item>
+        <item>0.70</item>
+    </string-array>
 </resources>
