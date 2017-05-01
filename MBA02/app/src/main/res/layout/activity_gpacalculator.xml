@@ -90,7 +90,7 @@
             android:layout_height="45dp"
             android:text="INSERT"
             android:layout_row="0"
-            android:layout_column="0"
+            android:layout_column="1"
             android:layout_marginRight="15dp"/>
         <Button
             android:id="@+id/bntClear"
@@ -98,7 +98,7 @@
             android:layout_height="45dp"
             android:text="clear"
             android:layout_row="0"
-            android:layout_column="1"/>
+            android:layout_column="0"/>
      </GridLayout>
     <Button
         android:id="@+id/calcGPA"
@@ -106,7 +106,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="Calculate Your GPA" />
+        android:text="Calculate Your GPA"
+        android:layout_marginRight="6dp"
+        />
 
     <TextView
         android:id="@+id/resultTotalUnits"

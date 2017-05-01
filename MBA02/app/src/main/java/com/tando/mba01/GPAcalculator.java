@@ -128,6 +128,8 @@ public class GPAcalculator extends AppCompatActivity {
         bntClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spinner1.setSelection(0);
+                spinner2.setSelection(0);
                 resultTotalUnits.setText("empty");
                 resultTotalGrades.setText("empty");
                 resultGPA.setText("empty");
