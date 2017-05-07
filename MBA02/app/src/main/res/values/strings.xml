@@ -104,7 +104,7 @@
         *= required fields</string>
     <string name="advising01">Fill out this form to ask for advising:\n
     *= required fields</string>
-    <string name="gpaCalc">Insert units and grade points for each of your class:\n
+    <string name="gpaCalc">Insert units and grade for each of your class:\n
     *= required fields</string>
     <string name="instruction"><b>Instructions:</b> Only click in the event that you are attending.
     The staff members will enter a passcode for you to submit your information.</string>

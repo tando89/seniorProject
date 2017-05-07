@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grade Points*:"
+            android:text="Grade*:"
             android:layout_column="2"
             android:layout_row="0"
             android:textColor="#000"

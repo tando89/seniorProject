@@ -126,6 +126,7 @@ public class GPAcalculator extends AppCompatActivity {
                 else {
                     Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
                 }
+
                 Toast.makeText(getApplicationContext(),
                         "You have inserted: " + numOfUnits + " units and " + numOfGrades + " Grade Points",
                         Toast.LENGTH_SHORT).show();
