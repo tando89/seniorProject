@@ -74,8 +74,58 @@ public class GPAcalculator extends AppCompatActivity {
                 unitsAdd.add(numOfUnits);
                 //Declare a string for selected Grades_items
                 String gradeSelected = spinner2.getSelectedItem().toString();
-                numOfGrades = Double.parseDouble(gradeSelected);
-                gradeAdd.add(numOfGrades);
+                //numOfGrades = Double.parseDouble(gradeSelected);
+                if (gradeSelected.equals("A")){
+                    numOfGrades = 4.00;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("A-")) {
+                    numOfGrades = 3.70;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("B+")) {
+                    numOfGrades = 3.33;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("B")) {
+                    numOfGrades = 3.00;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("B-")) {
+                    numOfGrades = 2.70;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("C+")) {
+                    numOfGrades = 2.30;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("C")) {
+                    numOfGrades = 2.00;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("C-")) {
+                    numOfGrades = 1.70;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("D+")) {
+                    numOfGrades = 1.30;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("D")) {
+                    numOfGrades = 1.00;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("D-")) {
+                    numOfGrades = 0.70;
+                    gradeAdd.add(numOfGrades);
+                }
+                else if (gradeSelected.equals("F")) {
+                    numOfGrades = 0.00;
+                    gradeAdd.add(numOfGrades);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
+                }
                 Toast.makeText(getApplicationContext(),
                         "You have inserted: " + numOfUnits + " units and " + numOfGrades + " Grade Points",
                         Toast.LENGTH_SHORT).show();
