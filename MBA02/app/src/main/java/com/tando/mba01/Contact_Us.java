@@ -32,6 +32,8 @@ public class Contact_Us extends AppCompatActivity {
     EditText FirstName, LastName, StudentID, CoyoteEmail, Messages;
     //php server  "https://cse455.tk/~mbapassport/insert.php";
     String server_url = "https://feedback-server-tand089.c9users.io/feedback.php";
+            //"https://feedback-server-tand089.c9users.io/feedback.php";
+    //https://feedback-server-tand089.c9users.io/feedbackEmail.php
 
     AlertDialog.Builder builder;
 
