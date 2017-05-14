@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     public void advising (View viewAdvising) {
         startActivity(new Intent(this, Advising.class));
     }
+    //button Calendar
+    public void calendar (View view) {
+        startActivity(new Intent(this, Calendar.class));
+    }
     //button MyCoyote Function
     public void StartMyCoyote (View viewMyCoyote) {
         startActivity(new Intent(this, MyCoyote.class));

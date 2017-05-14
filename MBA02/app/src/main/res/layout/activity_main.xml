@@ -99,7 +99,7 @@
             android:background="@drawable/calendars"
             android:id="@+id/button05"
             android:layout_marginBottom="10dp"
-            />
+            android:onClick="calendar"/>
         <Button
             android:text="My Coyote"
             android:textColor="#FFFFFF"

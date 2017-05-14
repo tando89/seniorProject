@@ -87,10 +87,14 @@
             android:label="Passport Info"
             android:parentActivityName=".Passport"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".CheckEvents"
+        <activity
+            android:name=".CheckEvents"
             android:label="Check Event"
-            android:parentActivityName=".Passport">
-        </activity>
+            android:parentActivityName=".Passport"></activity>
+        <activity
+            android:name=".Calendar"
+            android:label="Calendar"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

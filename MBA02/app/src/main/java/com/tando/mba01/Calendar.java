@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,25 +19,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class VirtualPassport extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class Calendar extends AppCompatActivity {
     //Declare ListView, GET method
-    private String TAG = VirtualPassport.class.getSimpleName();
+    private String TAG = Calendar.class.getSimpleName();
 
     private ProgressDialog pDialog;
 
-    private ListView lv;
+    private ListView calendarList;
 
-    // URL to get Events JSON
-    private static String url ="https://feedback-server-tand089.c9users.io/events.php";
+    // URL to get calendar JSON
+    private static String url ="https://feedback-server-tand089.c9users.io/calendar.php";
     //Declare an array to store the list of items
-    ArrayList<HashMap<String, String>> eventList;
+    ArrayList<HashMap<String, String>> cList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_virtual_passport);
-        eventList = new ArrayList<>();
+        setContentView(R.layout.activity_calendar);
+        cList = new ArrayList<>();
 
-        lv = (ListView) findViewById(R.id.lstView);
+        calendarList = (ListView) findViewById(R.id.calendarList);
+
         //Create a GetEvents class to make http calls on background thread
         new GetEvents().execute();
 
@@ -52,7 +52,7 @@ public class VirtualPassport extends AppCompatActivity implements AdapterView.On
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(VirtualPassport.this);
+            pDialog = new ProgressDialog(Calendar.this);
             pDialog.setMessage("Loading...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -60,9 +60,9 @@ public class VirtualPassport extends AppCompatActivity implements AdapterView.On
         }
         @Override
         protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
+            HttpHandler httpHandler = new HttpHandler();
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url);
+            String jsonStr = httpHandler.makeServiceCall(url);
 
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
@@ -70,28 +70,26 @@ public class VirtualPassport extends AppCompatActivity implements AdapterView.On
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     // Getting JSON Array node
-                    JSONArray event = jsonObj.getJSONArray("Event");
+                    JSONArray calendarList = jsonObj.getJSONArray("Calendar");
 
                     // looping through All Events
-                    for (int i = 0; i < event.length(); i++) {
-                        JSONObject c = event.getJSONObject(i);
+                    for (int i = 0; i < calendarList.length(); i++) {
+                        JSONObject c = calendarList.getJSONObject(i);
                         //get string from the json file
                         String Date = c.getString("Date");
-                        String Event = c.getString("Event");
-                        String Hosts = c.getString("Hosts");
-                        String Loc = c.getString("Location");
+                        String Note = c.getString("Note");
+
 
                         // tmp hash map for single event
-                        HashMap<String, String> events = new HashMap<>();
+                        HashMap<String, String> calendars = new HashMap<>();
 
                         // adding each child node to HashMap key => value
-                        events.put("Date", Date);
-                        events.put("Event", Event);
-                        events.put("Hosts", Hosts);
-                        events.put("Location", Loc);
+                        calendars.put("Date", Date);
+                        calendars.put("Note", Note);
 
-                        // adding contact to event list
-                        eventList.add(events);
+
+                        // adding contact to cList
+                        cList.add(calendars);
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -132,20 +130,21 @@ public class VirtualPassport extends AppCompatActivity implements AdapterView.On
              * Updating parsed JSON data into ListView
              * */
             ListAdapter adapter = new SimpleAdapter(
-                    VirtualPassport.this, eventList,
-                    R.layout.customized_list_view, new String[]{"Date", "Event",
-                    "Hosts", "Location"}, new int[]{R.id.date,
-                    R.id.event, R.id.host, R.id.location});
+                    Calendar.this, cList,
+                    R.layout.customized_calendar_lv, new String[]{"Date", "Note"}, new int[]{R.id.cDate,
+                    R.id.note});
 
-            lv.setAdapter(adapter);
-            lv.setOnItemClickListener(VirtualPassport.this);
+            calendarList.setAdapter(adapter);
 
         }
 
 
     }//End AsynTask
 
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        startActivity(new Intent(this, PassportValidation.class));
-    }
+    //back to homepage when click the logo
+        public void backHome (View home) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
 }
+
+
