@@ -18,8 +18,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +34,7 @@ public class RequestAppointment extends AppCompatActivity {
     Button buttonRequest;
     TextView textDates;
     //string for server url https://cse455.tk/~mbapassport/dates.php
-    String server_url = "https://feedback-server-tand089.c9users.io/dates.php";
+    String server_url = "https://feedback-server-tand089.c9users.io/AvailableDate.php";
     //back to homepage logo
     public void backHome (View home) {
         startActivity(new Intent(this, MainActivity.class));
@@ -39,7 +44,8 @@ public class RequestAppointment extends AppCompatActivity {
     EditText FirstName, LastName, StudentID, CoyoteEmail, Date;
     //php server https://cse455.tk/~mbapassport/appointment.php
     String server_url02 = "https://feedback-server-tand089.c9users.io/appointment.php";
-
+    //Declare string response from json file
+    private String JsonResponse;
     AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,17 +63,40 @@ public class RequestAppointment extends AppCompatActivity {
                 final RequestQueue requestQueue01 = Volley.newRequestQueue(RequestAppointment.this);
 
                 //String request from server
-                StringRequest stringRequest01 = new StringRequest(Request.Method.POST, server_url,
+                JsonArrayRequest arrayRequest01 = new JsonArrayRequest(server_url,
                         //Response listener
-                        new Response.Listener<String>() {
+                        new Response.Listener<JSONArray>() {
                             @Override
-                            public void onResponse(String response) {
+                            public void onResponse(JSONArray response) {
                                 //get response into textView
-                                textDates.setText(response);
+                                //textDates.setText(response);
                                 //Stop response after receiving
+                                try {
+                                    // Parsing json array response
+                                    // loop through each json object
+                                    JsonResponse = "";
+                                    for (int i = 0; i < response.length(); i++) {
+
+                                        JSONObject person = (JSONObject) response.get(i);
+
+                                        String name = person.getString("Name");
+                                        String date = person.getString("Date");
+
+
+                                        JsonResponse += "Name: " + name + "\n";
+                                        JsonResponse += "Date: " + date + "\n\n";
+
+                                    }
+
+                                    textDates.setText(JsonResponse);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+
+                                }
                                 requestQueue01.stop();
                             }
-                            //Error Listenner to check for errors
+                            //Error Listener to check for errors
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -78,7 +107,7 @@ public class RequestAppointment extends AppCompatActivity {
                     }
                 });
                 //add request string to request queue
-                requestQueue01.add(stringRequest01);
+                requestQueue01.add(arrayRequest01);
             }
         });
         //End buttonRequest function
