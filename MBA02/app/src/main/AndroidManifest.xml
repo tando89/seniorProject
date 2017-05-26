@@ -90,10 +90,13 @@
         <activity
             android:name=".CheckEvents"
             android:label="Check Event"
-            android:parentActivityName=".Passport"></activity>
+            android:parentActivityName=".Passport" />
         <activity
             android:name=".Calendar"
             android:label="Calendar"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Settings"
+            android:label="Settings"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

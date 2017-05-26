@@ -76,18 +76,18 @@ public class RequestAppointment extends AppCompatActivity {
                                     // loop through each json object
                                     JsonResponse = "";
                                     for (int i = 0; i < response.length(); i++) {
-
+                                        //parsing all json objects in 1 string named person
                                         JSONObject person = (JSONObject) response.get(i);
-
+                                        //make string name and date to store the json files
                                         String name = person.getString("Name");
                                         String date = person.getString("Date");
 
-
+                                        //set the string
                                         JsonResponse += "Name: " + name + "\n";
                                         JsonResponse += "Date: " + date + "\n\n";
 
                                     }
-
+                                    //parsing the string into textview
                                     textDates.setText(JsonResponse);
 
                                 } catch (JSONException e) {
