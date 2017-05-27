@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/MBACSUSB")));
     }
 
-    //Settings
+    //AboutTheApp
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settingsicon, menu);
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.settingsIcon:
-                Intent intent = new Intent(this, Settings.class);
+                Intent intent = new Intent(this, LoadSettingsFragment.class);
                 startActivity(intent);
                 //finish();
                 return true;

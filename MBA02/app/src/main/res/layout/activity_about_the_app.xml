@@ -4,16 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tando.mba01.Settings"
+    tools:context="com.tando.mba01.AboutTheApp"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <ImageView
+            android:layout_height="100dp"
+            app:srcCompat= "@drawable/csusb_logo"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:onClick="backHome" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prefence:"
+            android:text="MBA Mobile App:"
             android:textSize="30dp"
             android:textStyle="bold"
             android:textColor="#000"

@@ -11,18 +11,18 @@ import android.widget.TextView;
  * Created by tando on 5/25/17.
  */
 
-public class customizedSettings extends BaseAdapter {
+public class customizedAboutApp extends BaseAdapter {
     Context settingLst;
 
     LayoutInflater layoutSettings;
 
     String[] header = {"About"};
 
-    String[] body = {"MBA app is originally made by CSE455 students."};
+    String[] body = {"It is imperative for all new students to attend orientation. During this time faculty will review course information and the value of each concentration. Staff will lead the orientation and discuss program and university policies as well as curriculum. Students will have the opportunity to network and ask questions with regards to their academic goals."};
 
 
     //Constructor
-    public customizedSettings (Context settingLst) {
+    public customizedAboutApp(Context settingLst) {
         this.settingLst = settingLst;
         layoutSettings = (LayoutInflater) settingLst.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

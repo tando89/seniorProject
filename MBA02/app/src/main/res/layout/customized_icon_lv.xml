@@ -8,19 +8,21 @@
         android:id="@+id/item1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="6dp"
-        android:textColor="#ffa31a"
-        android:textSize="15dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="15dp"
+        android:textColor="#0459d1"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:text="About: "/>
+        android:text=""
+        android:paddingLeft="10dp"/>
     <TextView
         android:id="@+id/item2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000"
-        android:text=" "
-        android:textStyle="bold" />
+        android:text=""
+        android:textStyle="bold"
+        android:paddingLeft="10dp"/>
 
 
 </LinearLayout>

@@ -159,53 +159,6 @@
                 android:text="kasandra.adams@csusb.edu"
                 android:id="@+id/msA3" />
         </LinearLayout>
-
-        <!-- Mr. Omar Palmerin profile-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/mromar"
-                android:id="@+id/imageView5"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:text="@string/mrOmar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mrO1" />
-            <TextView
-                android:layout_gravity="center"
-                android:autoLink="phone"
-                android:textColorLink="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="(909) 537 5703"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:id="@+id/mrO2" />
-            <TextView
-                android:layout_gravity="center"
-                android:autoLink="email"
-                android:linksClickable="true"
-                android:textColorLink="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:text="omar.palmerin@csusb.edu"
-                android:id="@+id/mrO3" />
-        </LinearLayout>
-
-
-
-
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

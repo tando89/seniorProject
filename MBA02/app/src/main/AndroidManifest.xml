@@ -95,9 +95,13 @@
             android:name=".Calendar"
             android:label="Calendar"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Settings"
-            android:label="Settings"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".AboutTheApp"
+            android:label="MBA Mobile App"
+            android:parentActivityName=".LoadSettingsFragment"></activity>
+        <activity android:name=".LoadSettingsFragment"
+            android:theme="@style/PreferenceScreen"
+            android:parentActivityName=".MainActivity"
+            android:label="Preference"/>
     </application>
 
 </manifest>
