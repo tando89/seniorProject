@@ -5,25 +5,44 @@
         knowledge and skills for the creation of value through
         integrated operations and distribution of goods, services, and information.
     </string>
-    <string name="txt02">2.	<u><b>Communication, Written:</b></u>Each student can effectively
-        communicate in writing.
+    <string name="txt02">2.	<u><b>Communication:</b></u>Each student can effectively
+        communicate, either written or oral.
     </string>
-    <string name="txt03">3.	<u><b>Communication, Oral:</b></u>Each student can effectively present
+    <string name="txt03">3.	<u><b>Ethical Reasoning &amp; Global Context:</b></u>Each student can effectively present
         information orally.
     </string>
-    <string name="txt04">4.	<u><b>Ethical Reasoning:</b></u>Each student can recognize/analyze problems and choose/defend
-        resolutions for practical business situations.
+    <string name="txt04">4.	<u><b>Problem Solving &amp; Information Technology:</b></u>Each student can work through the
+        problem solving process using information technology to identify a problem, evaluate soluctions, and devise an
+        innovative strategy to achieve a desired goal.
     </string>
-    <string name="txt05">5. <u><b>Information Technology: </b></u>Each student can use information technology to support the structure
-        and processes of the organization, and use information technology in decision-making.
-    </string>
-    <string name="txt06">6.	<u><b>Problem Solving:</b></u>Each student can apply knowledge in new and unfamiliar circumstances
-        and devise innovative solutions to cope with unforeseen events.
-    </string>
-    <string name="txt07">7. <u><b>Global Context:</b></u>Each student understands varied cultural perspectives and global environments
-        and can develop innovative business solutions and practices that address complexity.
+    <string name="txt05">The goal of our Staff is to help students prepare, plan,
+        and perform to graduate our program by providing knowledge, resources, and support.
     </string>
 
+    <string name="txt06">
+        The MBA Student Ambassadors are a group of student leaders dedicated to representing the MBA program
+        at California State University San Bernardino.
+    </string>
+    <string name="txt07">1. The fostering of international and intercultural exchange amongst a diverse
+        business student body.</string>
+    <string name="txt08">2.	The ability to generate internship opportunities for our business students.</string>
+    <string name="txt09">3.	The promotion of career development.</string>
+    <string name="txt10">4.	Establishing a network of local, national and international employers.</string>
+    <string name="txt11">5.	The enrichment of leadership and public speaking skills.</string>
+    <string name="txt12">MBA Student Ambassador are students who have demonstrated a high potential
+        for academic success, community service, fostering diversity, and responsible leadership.</string>
+    <string name="txt13">Ambassadors are selected through a nomination process and are appointed by
+        unanimous vote of the MBA staff.  Only MBA program students are eligible for nomination and
+        Ambassadors are held to the highest standards of excellence.
+    </string>
+    <string name="txt14">Various events will be hosted by the Student Ambassadors throughout the
+        academic year. Such events will be announce via email.</string>
+    <string name="txt15">The Jack H. Brown College of Business and Public Administration values joint
+        research opportunities with faculty and students. As such, each quarter the college funds a
+        number of eligible candidates to be graduate and research assistants (GA). Please note: There
+        are currently three offices under the College of Business that handle the hiring details
+        for graduate/lab assistants.
+    </string>
     <string name="drSealText">
         Dr. Craig Seal\n
         Professor\n

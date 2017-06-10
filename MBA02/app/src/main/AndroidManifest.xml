@@ -95,13 +95,22 @@
             android:name=".Calendar"
             android:label="Calendar"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".AboutTheApp"
+        <activity
+            android:name=".AboutTheApp"
             android:label="MBA Mobile App"
-            android:parentActivityName=".LoadSettingsFragment"></activity>
-        <activity android:name=".LoadSettingsFragment"
-            android:theme="@style/PreferenceScreen"
+            android:parentActivityName=".LoadSettingsFragment" />
+        <activity
+            android:name=".LoadSettingsFragment"
+            android:label="Preference"
             android:parentActivityName=".MainActivity"
-            android:label="Preference"/>
+            android:theme="@style/PreferenceScreen" />
+        <activity
+            android:name=".StudentAmbassadors"
+            android:label="Student Ambassadors"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".GraduateAssistantship"
+            android:label="Graduate Assistantship"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

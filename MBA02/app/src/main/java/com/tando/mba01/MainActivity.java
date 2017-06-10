@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
     public void StartMyCoyote (View viewMyCoyote) {
         startActivity(new Intent(this, MyCoyote.class));
     }
+    //button Student Ambassadors
+    public void StartStudentAmbassadors (View vSb) {
+        startActivity(new Intent(this, StudentAmbassadors.class));
+    }
+    //button Graduate Assistantship
+    public void StartGraduateAssistantship (View vGA) {
+        startActivity(new Intent(this, GraduateAssistantship.class));
+    }
     //back to homepage when click the logo
     public void backHome (View home) {
         startActivity(new Intent(this, MainActivity.class));

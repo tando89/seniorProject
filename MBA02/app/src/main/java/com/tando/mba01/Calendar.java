@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Calendar extends AppCompatActivity {
-    //Declare ListView, GET method
+    //returns the simple name of the underlying class, easier to track in the Android monitor
     private String TAG = Calendar.class.getSimpleName();
-
+    //Prpgress bar while retrieving data
     private ProgressDialog pDialog;
-
+    //Declare ListView
     private ListView calendarList;
 
     // URL to get calendar JSON
@@ -39,7 +39,7 @@ public class Calendar extends AppCompatActivity {
 
         calendarList = (ListView) findViewById(R.id.calendarList);
 
-        //Create a GetEvents class to make http calls on background thread
+        ////execute the GetEvents class
         new GetEvents().execute();
 
     }
@@ -139,7 +139,7 @@ public class Calendar extends AppCompatActivity {
         }
 
 
-    }//End AsynTask
+    }//End AsyncTask
 
     //back to homepage when click the logo
         public void backHome (View home) {

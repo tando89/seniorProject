@@ -120,6 +120,7 @@
             android:layout_row="3"
             android:background="@drawable/studentambassadors"
             android:id="@+id/button07"
+            android:onClick="StartStudentAmbassadors"
             />
         <Button
             android:textAlignment= "center"
@@ -131,6 +132,7 @@
             android:layout_row="3"
             android:background="@drawable/graduateassistanship"
             android:id="@+id/button08"
+            android:onClick="StartGraduateAssistantship"
             />
     </GridLayout>
     <!--width and height set to be wrap_content and gravity
