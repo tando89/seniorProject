@@ -43,6 +43,10 @@
         are currently three offices under the College of Business that handle the hiring details
         for graduate/lab assistants.
     </string>
+    <string name="txt16">CSUSB Master\'s of Business Administration (MBA) Passport​ v3.0 mobile application
+        that is being developed by the CSE (482) Senior Project Software Engineering team at California
+        State University, San Bernardino. Versions 1.0 and 2.0 Have been previously developed by
+        The MBA team in CSE 455 (Winter 2017)</string>
     <string name="drSealText">
         Dr. Craig Seal\n
         Professor\n
@@ -62,12 +66,6 @@
         Room: JB 283
     </string>
 
-    <string name="mrOmar">
-        Omar Palmerin\n
-        Administrative Support Assistant\n
-        Room: JB 283
-    </string>
-
     <string name="passport1">
         1. <b>Leadership</b>– This passport will serve as a guide to signature activities being offered by
         the college. At the end of the academic year, MBA students who earn seven stamps on
@@ -76,7 +74,7 @@
     </string>
 
     <string name="passport2">
-        2. <b>Learning Goals</b>: [click here]
+        2. <b>Learning Goals</b>: [Read more about learning goals...]
     </string>
     <string name="passport3">
         3. <b>More than a Degree</b> – By completing your MBA Passport you will have the advantage of
@@ -85,7 +83,7 @@
         alumni, and faculty. This is a sure way to build your resume.
     </string>
     <string name="passport4">
-        <b>CBPA</b>: [Click here]
+        <b>CBPA</b>: [Read more about CBPA...]
     </string>
     <string name="passport5">
         <b>MBA</b>: [Click here]
